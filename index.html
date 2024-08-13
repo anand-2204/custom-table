@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        height: 100vh;
+      }
+
+      .header {
+        width: 70vw;
+        border: 1px solid black;
+        background-color: blueviolet;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      table {
+        width: 70vw;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+        border-collapse: collapse;
+      }
+      tr:nth-child(even) {
+        background-color: #d6eeee;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <input
+          type="search"
+          class="search-Box"
+          id="myInput"
+          placeholder="search for name"
+          onkeyup="searchfun()"
+        />
+      </div>
+      <table id="myTable">
+        <tr>
+          <td>Name</td>
+          <td>Degree</td>
+          <td>Company</td>
+        </tr>
+        <tr>
+          <td>anand</td>
+          <td>b.tech</td>
+          <td>TCS</td>
+        </tr>
+        <tr>
+          <td>gaurav</td>
+          <td>Bsc</td>
+          <td>infosys</td>
+        </tr>
+        <tr>
+          <td>ravikant</td>
+          <td>12</td>
+          <td>Agriculture</td>
+        </tr>
+        <tr>
+          <td>rishi</td>
+          <td>B.tech</td>
+          <td>Brillio</td>
+        </tr>
+        <tr>
+          <td>komal</td>
+          <td>BCA</td>
+          <td>wipro</td>
+        </tr>
+        <tr>
+          <td>sagar</td>
+          <td>BCA</td>
+          <td>CyberCity</td>
+        </tr>
+        <tr>
+          <td>satyam</td>
+          <td>DR</td>
+          <td>AIIMS</td>
+        </tr>
+
+        <tr>
+          <td>shivam</td>
+          <td>Msc</td>
+          <td>pharmacuitical</td>
+        </tr>
+        <tr>
+          <td>sundaram</td>
+          <td>M.tech</td>
+          <td>Accenture</td>
+        </tr>
+        <tr>
+          <td>rudra</td>
+          <td>Bsc</td>
+          <td>police</td>
+        </tr>
+        <tr>
+          <td>singham</td>
+          <td>MA</td>
+          <td>Police</td>
+        </tr>
+        <tr>
+          <td>raunak</td>
+          <td>Msc</td>
+          <td>Agro</td>
+        </tr>
+        <tr>
+          <td>sarika</td>
+          <td>Deled</td>
+          <td>Master</td>
+        </tr>
+        <tr>
+          <td>akanksha</td>
+          <td>MA</td>
+          <td>teacher</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      const searchfun = () => {
+        let filter_data = document
+          .getElementById("myInput")
+          .value.toUpperCase();
+          
+
+        let myTable = document.getElementById("myTable");
+        let tr = myTable.getElementsByTagName("tr");
+        for (var i=0; i<tr.length; i++) {
+          let td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+            let textvalue = td.textContent || td.innerHTML;
+
+            if (textvalue.toUpperCase().indexOf(filter_data) > -1) {
+              tr[i].style.display = "";
+            }
+            else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      };
+    </script>
+  </body>
+</html>
